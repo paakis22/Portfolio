@@ -21,7 +21,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
           <Link 
-            to="home" 
+            to="/" 
             smooth={true} 
             duration={500} 
             spy={true}
@@ -34,7 +34,7 @@ const Navbar = () => {
             Home
           </Link>
           <Link 
-            to="about" 
+            to="/about" 
             smooth={true} 
             duration={500}
             spy={true}
@@ -47,7 +47,7 @@ const Navbar = () => {
             About
           </Link>
           <Link 
-            to="skills" 
+            to="/skills" 
             smooth={true} 
             duration={500}
             spy={true}
@@ -60,7 +60,7 @@ const Navbar = () => {
             Skills
           </Link>
           <Link 
-            to="education" 
+            to="/education" 
             smooth={true} 
             duration={500}
             spy={true}
@@ -73,7 +73,7 @@ const Navbar = () => {
             Education
           </Link>
           <Link 
-            to="services" 
+            to="/services" 
             smooth={true} 
             duration={500}
             spy={true}
@@ -86,7 +86,7 @@ const Navbar = () => {
             Services
           </Link>
           <Link 
-            to="contact" 
+            to="/contact" 
             smooth={true} 
             duration={500}
             spy={true}
@@ -137,7 +137,7 @@ const Navbar = () => {
               Home
             </Link>
             <Link 
-              to="about" 
+              to="/about" 
               smooth={true} 
               duration={500}
               spy={true}
@@ -151,7 +151,7 @@ const Navbar = () => {
               About
             </Link>
             <Link 
-              to="skills" 
+              to="/skills" 
               smooth={true} 
               duration={500}
               spy={true}
@@ -165,7 +165,7 @@ const Navbar = () => {
               Skills
             </Link>
             <Link 
-              to="education" 
+              to="/education" 
               smooth={true} 
               duration={500}
               spy={true}
@@ -179,7 +179,7 @@ const Navbar = () => {
               Education
             </Link>
             <Link 
-              to="services" 
+              to="/services" 
               smooth={true} 
               duration={500}
               spy={true}
@@ -193,7 +193,7 @@ const Navbar = () => {
               Services
             </Link>
             <Link 
-              to="contact" 
+              to="/contact" 
               smooth={true} 
               duration={500}
               spy={true}

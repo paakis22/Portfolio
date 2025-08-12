@@ -6,8 +6,12 @@ import {
   FaFacebook,
 } from "react-icons/fa";
 import bgImage from "../assets/BG.jpg";
-import profileImage from "../assets/BG.jpg";
+import profileImage from "../assets/Sutha.png";
 import About from "../pages/About.jsx";
+import Skills from "./Skills.jsx";
+import Education from "./Education.jsx";
+// import Service from "./Service.jsx";
+// import Contact from "./Contact.jsx";
 
 const Home = () => {
   const [activeButton, setActiveButton] = useState(null);
@@ -23,7 +27,7 @@ const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center">
+      <section id="/" className="relative min-h-screen flex items-center justify-center">
         {/* Overlay for blur effect */}
         <div className="absolute inset-0 bg-[#0046FF] bg-opacity-70 backdrop-blur-sm"></div>
 
@@ -118,9 +122,29 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20">
+      <section id="/about">
         <About />
       </section>
+
+      {/* Skills Section */}
+      <section id="/skills">
+        <Skills />
+      </section>
+
+      {/*Education Section */}
+      <section id="/education">
+        <Education />
+      </section>
+
+      {/* Services Section */}
+      {/* <section id="/service">
+        <Service />
+      </section> */}
+
+      {/* Contact Section */}
+      {/* <section id="/contact">
+        <Contact />
+      </section> */}
     </>
   );
 };
