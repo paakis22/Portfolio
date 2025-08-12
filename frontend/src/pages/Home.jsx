@@ -11,7 +11,7 @@ import About from "../pages/About.jsx";
 import Skills from "./Skills.jsx";
 import Education from "./Education.jsx";
 // import Service from "./Service.jsx";
-// import Contact from "./Contact.jsx";
+import Contact from "./Contact.jsx";
 
 const Home = () => {
   const [activeButton, setActiveButton] = useState(null);
@@ -142,9 +142,9 @@ const Home = () => {
       </section> */}
 
       {/* Contact Section */}
-      {/* <section id="/contact">
+      <section id="/contact">
         <Contact />
-      </section> */}
+      </section>
     </>
   );
 };
