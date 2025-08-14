@@ -27,44 +27,44 @@ export const getAllContacts = async (req, res) => {
 };
 
 // Update a contact message by ID (if needed)
-export const updateContact = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { name, email, subject, message } = req.body;
+// export const updateContact = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { name, email, subject, message } = req.body;
 
-    if (!name || !email || !subject || !message) {
-      return res.status(400).json({ error: "All fields are required" });
-    }
+//     if (!name || !email || !subject || !message) {
+//       return res.status(400).json({ error: "All fields are required" });
+//     }
 
-    const updatedContact = await Contact.findByIdAndUpdate(
-      id,
-      { name, email, subject, message },
-      { new: true, runValidators: true }
-    );
+//     const updatedContact = await Contact.findByIdAndUpdate(
+//       id,
+//       { name, email, subject, message },
+//       { new: true, runValidators: true }
+//     );
 
-    if (!updatedContact) {
-      return res.status(404).json({ error: "Contact not found" });
-    }
+//     if (!updatedContact) {
+//       return res.status(404).json({ error: "Contact not found" });
+//     }
 
-    res.status(200).json({ success: true, data: updatedContact });
-  } catch (error) {
-    res.status(500).json({ error: "Error updating the message" });
-  }
-};
+//     res.status(200).json({ success: true, data: updatedContact });
+//   } catch (error) {
+//     res.status(500).json({ error: "Error updating the message" });
+//   }
+// };
 
 
 // Delete a contact message by ID
-export const deleteContact = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const deleted = await Contact.findByIdAndDelete(id);
+// export const deleteContact = async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const deleted = await Contact.findByIdAndDelete(id);
 
-    if (!deleted) {
-      return res.status(404).json({ error: "Message not found" });
-    }
+//     if (!deleted) {
+//       return res.status(404).json({ error: "Message not found" });
+//     }
 
-    res.status(200).json({ success: true, message: "Message deleted successfully" });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+//     res.status(200).json({ success: true, message: "Message deleted successfully" });
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// };

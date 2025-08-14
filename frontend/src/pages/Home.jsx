@@ -1,152 +1,87 @@
-import React, { useState } from "react";
-import {
-  FaGithub,
-  FaLinkedinIn,
-  FaInstagram,
-  FaFacebook,
-} from "react-icons/fa";
-import bgImage from "../assets/BG.jpg";
-import profileImage from "../assets/Sutha.png";
+import React from "react";
+import { FaGithub, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
 import About from "../pages/About.jsx";
-import Skills from "./Skills.jsx";
-import Education from "./Education.jsx";
-// import Service from "./Service.jsx";
-import Contact from "./Contact.jsx";
+import Skills from "../pages/Skills.jsx";
+import Education from "../pages/Education.jsx";
+import Contact from "../pages/Contact.jsx";
 
-const Home = () => {
-  const [activeButton, setActiveButton] = useState(null);
-
-  const handleAboutClick = () => {
-    setActiveButton('/about');
-    const aboutSection = document.getElementById("/about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
+export default function Home() {
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       {/* Hero Section */}
-      <section id="/" className="relative min-h-screen flex items-center justify-center">
-        {/* Overlay for blur effect */}
-        <div className="absolute inset-0 bg-[#0046FF] bg-opacity-70 backdrop-blur-sm"></div>
-
-        <div className="relative container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-12 py-12">
-          {/* Text Section - Centered */}
-          <div className="text-white max-w-lg space-y-6 z-10 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-extrabold">
-              Hi, I'm <span className="text-sky-400">Sasikumar Sutharsan</span>
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 to-white pt-16"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="text-center">
+            <h2 className="text-lg sm:text-xl text-emerald-600 font-medium mb-4">
+              Hi, I'm Sasikumar Sutharsan
+            </h2>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-gray-900 mb-6">
+              I'm a Full Stack Web Developer
             </h1>
-            <h3 className="text-xl md:text-2xl font-semibold">
-              I'm a{" "}
-              <span className="text-sky-400">Full Stack Web Developer</span>
-            </h3>
-            <p className="text-sm md:text-base text-gray-300">
-              Full Stack Developer | Tamil Typing Expert | Graphic Designer
-              (Photoshop & Canva) | UI/UX Designer – Building digital
-              experiences that stand out!
+            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
+              Full Stack Developer | Tamil Typing Expert | Graphic Designer (Photoshop & Canva) | UI/UX Designer – Building digital experiences that stand out!
             </p>
 
-            {/* Buttons - Centered on mobile, left-aligned on desktop */}
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <button 
-                className={`bg-[#FF8040] hover:bg-[rgba(255,128,64,0.9)] text-white py-2 px-6 rounded-md transition duration-300 font-bold text-xl ${
-                  activeButton === 'hire' ? 'ring-2 ring-white' : ''
-                }`}
-                onClick={() => setActiveButton('hire')}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <button
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-lg text-lg font-medium transition"
+                onClick={() => scrollToSection("#contact")}
               >
                 Hire Me
               </button>
               <button
-                className={`border border-white hover:bg-[#FFFFFF] hover:text-[#0046FF] text-white py-2 px-6 rounded-md transition duration-300 text-xl ${
-                  activeButton === 'about' ? 'bg-[#0046FF] text-white font-bold' : ''
-                }`}
-                onClick={handleAboutClick}
+                className="border border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3 rounded-lg text-lg font-medium transition"
+                onClick={() => scrollToSection("#about")}
               >
                 About Me
               </button>
             </div>
 
-            {/* Social Icons - Centered on mobile, left-aligned on desktop */}
-            <div className="flex gap-4 mt-8 justify-center md:justify-start">
-              <a
-                href="https://github.com/sutharsan112112"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 hover:bg-sky-400 p-3 rounded-full text-white transition duration-300 hover:-translate-y-1"
-                aria-label="GitHub"
-              >
-                <FaGithub size={20} />
+            <div className="flex justify-center space-x-6">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-gray-100 hover:bg-emerald-100 text-gray-600 hover:text-emerald-600 transition-colors">
+                <FaGithub className="h-6 w-6" />
               </a>
-              <a
-                href="https://www.linkedin.com/in/sasi-sutharsan-807a04358?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 hover:bg-sky-400 p-3 rounded-full text-white transition duration-300 hover:-translate-y-1"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn size={20} />
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-gray-100 hover:bg-emerald-100 text-gray-600 hover:text-emerald-600 transition-colors">
+                <FaFacebook className="h-6 w-6" />
               </a>
-              <a
-                href="https://www.instagram.com/sasi.sutharsan/profilecard/?igsh=MWVuaXhpb3Nhb2U3cQ=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 hover:bg-sky-400 p-3 rounded-full text-white transition duration-300 hover:-translate-y-1"
-                aria-label="Instagram"
-              >
-                <FaInstagram size={20} />
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-gray-100 hover:bg-emerald-100 text-gray-600 hover:text-emerald-600 transition-colors">
+                <FaLinkedin className="h-6 w-6" />
               </a>
-              <a
-                href="https://www.facebook.com/share/1F9X51DbbR/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 hover:bg-sky-400 p-3 rounded-full text-white transition duration-300 hover:-translate-y-1"
-                aria-label="Facebook"
-              >
-                <FaFacebook size={20} />
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-gray-100 hover:bg-emerald-100 text-gray-600 hover:text-emerald-600 transition-colors">
+                <FaInstagram className="h-6 w-6" />
               </a>
             </div>
-          </div>
-
-          {/* Image Section - Centered */}
-          <div className="flex justify-center md:block max-w-xs lg:max-w-sm rounded-xl overflow-hidden shadow-lg z-10 border-4 border-sky-400/30">
-            <img
-              src={profileImage}
-              alt="Sasikumar Sutharsan"
-              className="object-cover w-full h-full rounded-xl"
-              width={400}
-              height={500}
-            />
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="/about">
+      <section id="about">
         <About />
       </section>
 
       {/* Skills Section */}
-      <section id="/skills">
+      <section id="skills">
         <Skills />
       </section>
 
-      {/*Education Section */}
-      <section id="/education">
+      {/* Education Section */}
+      <section id="education">
         <Education />
       </section>
 
-      {/* Services Section */}
-      {/* <section id="/service">
-        <Service />
-      </section> */}
-
       {/* Contact Section */}
-      <section id="/contact">
+      <section id="contact">
         <Contact />
       </section>
     </>
   );
 };
-
-export default Home;
