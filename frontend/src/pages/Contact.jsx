@@ -9,6 +9,7 @@ export default function Contact() {
     email: "",
     subject: "",
     message: "",
+    ownerEmail: "sutharsan112112@gmail.com", // Owner's email for sending the message
   });
 
   const handleChange = (e) => {

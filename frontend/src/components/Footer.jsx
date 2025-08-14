@@ -12,7 +12,7 @@ export const Footer = () => {
             Sasikumar Sutharsan
           </h3>
           <p className="text-gray-400 text-sm sm:text-base">
-            Full Stack Developer | Tamil Typing Expert | Graphic Designer | UI/UX Designer
+            Full Stack Developer
           </p>
         </div>
 
