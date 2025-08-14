@@ -3,6 +3,7 @@ import { FaGithub, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
 import About from "../pages/About.jsx";
 import Skills from "../pages/Skills.jsx";
 import Education from "../pages/Education.jsx";
+import Services from "../pages/Services.jsx";
 import Contact from "../pages/Contact.jsx";
 
 export default function Home() {
@@ -76,6 +77,11 @@ export default function Home() {
       {/* Education Section */}
       <section id="education">
         <Education />
+      </section>
+
+      {/* Services Section */}
+      <section id="services">
+        <Services />
       </section>
 
       {/* Contact Section */}
