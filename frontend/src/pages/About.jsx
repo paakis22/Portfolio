@@ -93,7 +93,7 @@ export default function About() {
 
           {/* Right Content / Image */}
           <div className="flex justify-center">
-            <div className="w-[300px] h-[550px] bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-lg flex items-center justify-center">
+            <div className="w-[300px] h-[540px] bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-lg flex items-center justify-center">
               <img
                 src={SuthaImage}
                 alt="Sasikumar Sutharsan"
