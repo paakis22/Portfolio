@@ -28,7 +28,7 @@ export default function Home() {
               I'm a Full Stack Web Developer
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
-              Full Stack Developer | Tamil Typing Expert | Graphic Designer (Photoshop & Canva) | UI/UX Designer – Building digital experiences that stand out!
+              Full Stack Developer | Graphic Designer (Photoshop & Canva) | UI/UX Designer – Building digital experiences that stand out!
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
