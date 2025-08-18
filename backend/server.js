@@ -1,59 +1,48 @@
-// import express from "express";
-// import cors from "cors";
-// import dotenv from "dotenv";
-// import mongoose from "mongoose";
-
-// import contactRoutes from "./routes/contactRoutes.js";
-
-// dotenv.config();
-// const app = express();
-
-// app.use(cors());
-// app.use(express.json());
-
-// // Routes
-// app.get("/", (req, res) => res.send("Backend running..."));
-// app.use("/api/contact", contactRoutes);
-
-// // MongoDB connection
-// mongoose.connect(process.env.MONGO_URI, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
-// .then(() => {
-//   console.log("✅ MongoDB connected");
-//   const PORT = process.env.PORT || 5000;
-//   app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-// })
-// .catch(err => console.error("❌ MongoDB connection error:", err.message));
-
-
-
 import express from "express";
 import cors from "cors";
+import nodemailer from "nodemailer";
+import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
-
-import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
+
 const app = express();
-
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// Routes
-app.get("/", (req, res) => res.send("Backend running..."));
-app.use("/api/contact", contactRoutes);
+const PORT = process.env.PORT || 5000;
 
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log("✅ MongoDB connected"))
-.catch(err => console.error("❌ MongoDB connection error:", err.message));
+// Nodemailer transporter
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
+  },
+});
 
-// ❌ app.listen வேண்டாம்
-// ✅ Vercel-க்கு app export செய்யணும்
-export default app;
+// POST route for contact form
+app.post("/api/contact", async (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  if (!name || !email || !subject || !message) {
+    return res.status(400).json({ message: "All fields are required" });
+  }
+
+  const mailOptions = {
+    from: `"${name}" <${email}>`,
+    to: "sutharsan112112@gmail.com",
+    subject: subject,
+    text: `You received a new message from your portfolio contact form:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: "Message sent successfully!" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to send message" });
+  }
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

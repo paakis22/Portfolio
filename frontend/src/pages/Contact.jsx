@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,7 +8,6 @@ export default function Contact() {
     email: "",
     subject: "",
     message: "",
-    ownerEmail: "sutharsan112112@gmail.com", // Owner's email for sending the message
   });
 
   const handleChange = (e) => {
@@ -19,14 +17,25 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/contact", formData);
-      toast.success("✅ Message sent successfully!");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.status === 200) {
+        toast.success(data.message);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        toast.error(data.message || "Something went wrong");
+      }
     } catch (err) {
-      console.error(err);
-      toast.error("❌ Failed to send message.");
+      toast.error("Server error. Please try again later.");
     }
   };
+
 
   return (
     <section className="bg-gray-50 py-12 px-4">
