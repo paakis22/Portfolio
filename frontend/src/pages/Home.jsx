@@ -22,7 +22,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h2 className="text-lg sm:text-xl text-emerald-600 font-medium mb-4">
-              Hi, I'm Sasikumar Sutharsan
+              Hi, I'm Paakis
             </h2>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-gray-900 mb-6">
               I'm a Full Stack Web Developer
