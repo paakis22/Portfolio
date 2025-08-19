@@ -31,7 +31,7 @@ app.post("/api/contact", async (req, res) => {
 
   const mailOptions = {
     from: `"${name}" <${email}>`,
-    to: "sutharsan112112@gmail.com",
+    to: "sripaakis@gmail.com",
     subject: subject,
     text: `You received a new message from your portfolio contact form:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
